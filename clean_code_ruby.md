@@ -1,15 +1,24 @@
 # Clean Code The Ruby Way
 #### By Logan Kane, Software Engineer Co-op at Rise People Inc
 
-I recently finished reading `Clean Code by Robert C. Martin` [1]. Uncle Bob knows best, but his examples are in Java. The knowledge gained from this book can be applied to any programming language. Some things like naming or formatting have a certain way that a Rubyist would do it. Most use Rubocop for linting and formatting, and naming in Ruby follows a different convention than Java. Let’s adapt everything for Ruby!
+I recently finished reading `Clean Code by Robert C. Martin` [1]. As they say, Uncle Bob knows best. Unfortunately, all his examples are in Java. The knowledge gained from this book can be applied to any programming language. Some things like naming or formatting have a certain way that a Rubyist would do it. Rubocop can be used for linting and formatting. Naming in Ruby follows a different convention than Java. Let’s adapt everything for Ruby!
 
 I won’t touch on everything covered in Clean Code, but I will do variables, methods, objects, classes, and a few extras.
-Things like formatting, error handling,  and comments are all preferential in how you or your organization chooses to handle them.
+Things such as formatting, error handling, and comments are all user or organizational preferences.
 
 ## Variables
 > Variable paragraph
 
 #### Use variables that have names which convey the meaning of what they are
+``` Ruby
+# Good
+employee_time_off_events = Calendar.new
+
+# Not so good
+cal = Calendar.new
+```
+
+#### Example 2
 ``` Ruby
 # Good
 
@@ -18,6 +27,13 @@ Things like formatting, error handling,  and comments are all preferential in ho
 
 ```
 
+#### Example 3
+``` Ruby
+# Good
+
+# Not so good
+
+```
 ## Methods
 > In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven. There isn't a large difference between a method and a function outside of that.
 
@@ -29,8 +45,24 @@ Things like formatting, error handling,  and comments are all preferential in ho
 # Not so good
 ```
 
+#### Example 2
+``` Ruby
+# Good
+
+
+# Not so good
+
+```
+
+#### Example 3
+``` Ruby
+# Good
+
+# Not so good
+
+```
 ## Classes + Objects
-> I'm lumping objects in with classes, because of the fact that everything is an object in Ruby, and I believe the advice pairs best here. 
+> Because everything is an object in Ruby, this advice pairs best with both classes and objects.
 
 #### Something
 ``` Ruby
@@ -40,10 +72,26 @@ Things like formatting, error handling,  and comments are all preferential in ho
 # Not so good
 ```
 
-Side note: What's a PORO (Plain Old Ruby Object)? Because everything is an object, doesn't that make PORO moot? Normally this is used when talking Rails, to differentiate between complex objects like an ActiveRecord model. Rails objects usually have complex logic or behaviour, which means that PORO is the differentiator for `simple`.
+#### Example 2
+``` Ruby
+# Good
+
+
+# Not so good
+
+```
+
+#### Example 3
+``` Ruby
+# Good
+
+# Not so good
+
+```
+Side note: What's a PORO (Plain Old Ruby Object)? Because everything is an object, doesn't that make PORO moot? Normally this is used when talking Rails, to differentiate between complex objects like an ActiveRecord model. Rails objects usually have complex logic or behaviour, meaning PORO equates to `simple`.
 
 ## Code Smells
-> There are a bunch of code smells that Uncle Bob mentions, where he compiles a list from `Refactoring by Martin Fowler` [2]. Here are just a few of them.
+> Uncle Bob mentions a bunch of code smells, compiled from `Refactoring by Martin Fowler` [2]. Here are a few notable ones.
 
 #### Comments
 Write concise, informative comments, making sure to delete them if obsolete, or if the code tells all of the information.
@@ -67,7 +115,7 @@ end
 ```
 
 #### Duplication
-> I think most people are guilty of this at some point. DRY is important, but sometimes unavoidable.
+> Most people are guilty of this at some point. DRY is important, but sometimes unavoidable.
 ``` Ruby
 # Good, reusable
 def add(a,b)
@@ -100,7 +148,7 @@ case glass_level_percentage
     ...
   when 100
     ...
-  when 110 # Oops, this won't be executed.
+  when 110 # Oops, this won't execute.
     ...
 end
 ```
@@ -119,8 +167,8 @@ if !employee_clock.tick
 > If you want another great book to read, try `Practical Object-Oriented Design in Ruby by Sandi Metz` [3].
 - In Ruby, everything is pass by value, but these values are references to objects
 - For formatting, you could use Rubocop with default rules. Easy!
-- For error handling, use a service such as Airbrake, Sentry, Honeybadger, etc. They all have their own implementation.
-- For comments, there should be an organization style guide for what constitutes a good comment.
+- Exception handling services such as Airbrake or HoneyBadger, are useful for application errors.
+- Organization style guides help with cohesion and what forms a good comment
 
 ## References/ Ruby Books
 - [1] Clean Code by Robert C. Martin

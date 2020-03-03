@@ -7,9 +7,20 @@ I won’t touch on everything covered in Clean Code, but I will do variables, me
 Things such as formatting, error handling, and comments are all user or organizational preferences.
 
 ## Variables
-> Variable paragraph
+> Well named variables can be the difference between confusion and understanding. Misinterpreting what is going on in a method because of a poorly named variable isn't something you want.
 
-#### Use variables that have names which convey the meaning of what they are
+#### Use intention revealing variable names AKA what they are
+``` Ruby
+# Good
+admin_user = User.where(...)
+
+# Not so good
+u = User.where(...)
+
+# This can get confusing if you're using multiple single letter variables, particularly in a loop or block.
+```
+
+#### Avoid names that are misleading or confusing
 ``` Ruby
 # Good
 employee_time_off_events = Calendar.new
@@ -18,21 +29,13 @@ employee_time_off_events = Calendar.new
 cal = Calendar.new
 ```
 
-#### Example 2
+#### Avoid including the type in the name
 ``` Ruby
 # Good
-
-
-# Not so good
-
-```
-
-#### Example 3
-``` Ruby
-# Good
+employee_phone_number = 555_555_5555
 
 # Not so good
-
+phone_number_int = 123_456_7890
 ```
 ## Methods
 > In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven. There isn't a large difference between a method and a function outside of that.
@@ -94,7 +97,7 @@ Side note: What's a PORO (Plain Old Ruby Object)? Because everything is an objec
 > Uncle Bob mentions a bunch of code smells, compiled from `Refactoring by Martin Fowler` [2]. Here are a few notable ones.
 
 #### Comments
-Write concise, informative comments, making sure to delete them if obsolete, or if the code tells all of the information.
+> Write concise, informative comments. Remove a comment when it is obsolete, or telling the same story the code tells.
 Here are some examples of bad comments:
 ``` Ruby
 # This is the speak method for the ... class (Redundant)
@@ -165,12 +168,12 @@ if !employee_clock.tick
 
 ## Extras 
 > If you want another great book to read, try `Practical Object-Oriented Design in Ruby by Sandi Metz` [3].
-- In Ruby, everything is pass by value, but these values are references to objects
+<!-- - In Ruby, everything is pass by value, but these values are references to objects  NOT NEEDED -->
 - For formatting, you could use Rubocop with default rules. Easy!
-- Exception handling services such as Airbrake or HoneyBadger, are useful for application errors.
-- Organization style guides help with cohesion and what forms a good comment
+- Exception handling services such as Airbrake or HoneyBadger, are useful for anything related to application errors.
+- Organization style guides help with cohesion and what forms a good comment.
 
 ## References/ Ruby Books
 - [1] Clean Code by Robert C. Martin
-- [3] Refactoring by Martin Fowler
-- [2] Practical Object-Oriented Design in Ruby by Sandi Metz
+- [2] Refactoring by Martin Fowler
+- [3] Practical Object-Oriented Design in Ruby by Sandi Metz

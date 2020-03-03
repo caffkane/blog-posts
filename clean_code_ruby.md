@@ -17,7 +17,9 @@ admin_user = User.where(...)
 # Not so good
 u = User.where(...)
 
-# This can get confusing if you're using multiple single letter variables, particularly in a loop or block.
+# This can get confusing if you're using multiple
+# single letter variables particularly in
+# a loop or block.
 ```
 
 #### Avoid names that are misleading or confusing

@@ -37,24 +37,46 @@ employee_phone_number = 555_555_5555
 # Not so good
 phone_number_int = 123_456_7890
 ```
-## Methods
+## Methods + Functions
 > In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven. There isn't a large difference between a method and a function outside of that.
 
-#### Something
+#### Limit Method Arguments (no more than 3)
 ``` Ruby
+# Best
+def street_name_generator(num, string)
+  num + string
+end
+
 # Good
+def event_creator(date, location, name)
+...
+end
 
+# Not so good, what kind of arguments is this
+# going to be taking in?
+def doing_lots(*args)
+...
+end
 
-# Not so good
+# This means that this method now has to do a lot
+# Methods shouldn't be more than a few lines long
+# This allows them to do one thing, and one thing well.
+def doing_even_more(date, num, name, location)
+...
+end
 ```
 
-#### Example 2
+#### Methods should do one thing
 ``` Ruby
 # Good
+def
 
+end
 
 # Not so good
+def
 
+end
 ```
 
 #### Example 3
@@ -65,7 +87,7 @@ phone_number_int = 123_456_7890
 
 ```
 ## Classes + Objects
-> Because everything is an object in Ruby, this advice pairs best with both classes and objects.
+> Because everything is an object in Ruby, this advice pairs best with both classes and objects. A class should do one thing, and one thing well.
 
 #### Something
 ``` Ruby
@@ -118,7 +140,7 @@ end
 ```
 
 #### Duplication
-> Most people are guilty of this at some point. DRY is important, but sometimes unavoidable.
+> Most people are guilty of this at some point. Don't Repeat Yourself (DRY) is important.
 ``` Ruby
 # Good, reusable
 def add(a,b)
@@ -157,7 +179,7 @@ end
 ```
 
 #### Avoid Negative Conditionals
-> It is easier to understand positive logic over negative logic
+> It's easier to understand positive logic over negative logic
 ``` Ruby
 # Good
 if employee_clock.tick

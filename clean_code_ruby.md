@@ -71,22 +71,39 @@ end
 #### Methods should do one thing
 ``` Ruby
 # Good
-def
-
+def print_trophies(trophies)
+  trophies.each do |trophy|
+    puts trophy
+  end
 end
 
-# Not so good
-def
+# Not so good, this does boolean logic and printing
+# This could be simplified by only printing out the trophies
+# Not checking if they're active
+# To Do: Make this more robust of a bad example.
 
+def active_sport_player_trophies(name, active, sport)
+  if active
+    player_trophies = get_sport_trophies(name, sport)
+    player_trophies.each do |trophy|
+      puts trophy
+    end
+  else
+    puts "This player is not active."
+  end
 end
 ```
 
 #### Example 3
 ``` Ruby
 # Good
+def
 
+end
 # Not so good
+def
 
+end
 ```
 ## Classes + Objects
 > Because everything is an object in Ruby, this advice pairs best with both classes and objects. A class should do one thing, and one thing well.
@@ -190,7 +207,7 @@ if employee_clock.tick
 if !employee_clock.tick
 ```
 
-## Extras 
+## Extras
 > If you want another great book to read, try `Practical Object-Oriented Design in Ruby by Sandi Metz` [3].
 <!-- - In Ruby, everything is pass by value, but these values are references to objects  NOT NEEDED -->
 - For formatting, you could use Rubocop with default rules. Easy!

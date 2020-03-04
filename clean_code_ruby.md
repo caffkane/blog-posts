@@ -7,7 +7,7 @@ I recently finished reading `Clean Code by Robert C. Martin` [1]. As they say, U
 I won’t touch on everything covered in Clean Code, but I will do variables, methods, objects, classes, and a few extras.
 Things such as formatting, error handling, and comments are all user or organizational preferences.
 
-# Variables
+## Variables
 > Well named variables can be the difference between confusion and understanding. Misinterpreting what is going on in a method because of a poorly named variable isn't something you want.
 
 #### Use intention revealing variable names AKA what they are
@@ -19,7 +19,7 @@ admin_user = User.where(...)
 u = User.where(...)
 
 # This can get confusing if you're using multiple
-# single letter variables particularly in
+# single letter variables, particularly in
 # a loop or block.
 ```
 
@@ -40,12 +40,12 @@ employee_phone_number = 555_555_5555
 # Not so good
 phone_number_int = 123_456_7890
 ```
-# Methods + Functions
+## Methods + Functions
 > In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven. There isn't a large difference between a method and a function outside of that.
 
 #### Limit Method Arguments (no more than 3)
 ``` Ruby
-# Best
+# Best (1 or 2)
 def street_name_generator(num, string)
   num + string
 end
@@ -78,11 +78,11 @@ def print_trophies(trophies)
   end
 end
 
-# Not so good, this does boolean logic and printing
 # This could be simplified by only printing out the trophies
 # Not checking if they're active
 # To Do: Make this more robust of a bad example.
 
+# Not so good, this does boolean logic and printing
 def active_sport_player_trophies(name, active, sport)
   if active
     player_trophies = get_sport_trophies(name, sport)
@@ -106,48 +106,82 @@ def
 
 end
 ```
-# Classes + Objects
+## Classes + Objects
 > Because everything is an object in Ruby, this advice pairs best with both classes and objects. Funny enough, SOLID can be applied to a lot of the class advice
 
 ### Classes should be small - [Single Responsibility Principle (S in SOLID)]
 ``` Ruby
-# Good
 # Count responsibilities, not lines.
 # Should you put your writing into two drawers?
 # Or organize everything into organized filing cabinets?
-class that is super responsible?
+
+# Good
+Class ResourceMaker
+
+end
 
 # Not so good
+Class ResourceMaker
+
+end
 ```
 
-#### Classes should be open - [Open Close Principle (O in SOLID)]
+#### Classes should be organized - [Open Close Principle (O in SOLID)]
 ``` Ruby
-# Good
+# Small, organized classes means that functions are less likely to break one another
+# In this way, we can make sure that our class is OPEN for extension,
+# but CLOSED for modification
 
+# Good
+Class ResourceMaker
+  # Some code that is O
+end
 
 # Not so good
-
+Class ResourceMaker
+  # Some code that is not O
+end
 ```
 
 #### Classes should be - [Dependency Inversion Principle (D in SOLID)]
 ``` Ruby
+# Abstract away classes from the concrete details.
+# Abstract classes allow for easier testing and
+# making sure nothing breaks when details change
+
 # Good
+Class ResourceMaker
+
+end
 
 # Not so good
+Class ResourceMaker
 
+end
 ```
+Side note: Make sure not to abstract too early, or if needed at all.
+An example of this is database adapters. Yes, it is absolutely possible to create an abstract adapter so that you can make both a MongoDB client and a PostgreSQL client. In reality, most use cases never warrant switching over to a new database client. There is a reason that organizations still use MSSQL or Oracle.
 
 #### Classes should be cohesive
 
 ``` Ruby
+# Classes should touch as much of the variables as possible
+# If they variables aren't used, split the class up
+
 # Good
+Class ResourceMaker
+
+end
 
 # Not so good
+Class ResourceMaker
 
+end
 ```
-Side note: What's a PORO (Plain Old Ruby Object)? Because everything is an object, doesn't that make PORO moot? Normally this is used when talking Rails, to differentiate between complex objects like an ActiveRecord model. Rails objects usually have complex logic or behaviour, meaning PORO equates to `simple`.
 
-# Code Smells
+>Ruby Object Note: What's a PORO (Plain Old Ruby Object)? Because everything is an object, doesn't that make PORO moot? Normally this is used when talking Rails, to differentiate between complex objects like an ActiveRecord model. Rails objects usually have complex logic or behaviour, meaning PORO equates to `simple`.
+
+## Code Smells
 > Uncle Bob mentions a bunch of code smells, compiled from `Refactoring by Martin Fowler` [2]. Here are a few notable ones.
 
 #### Comments
@@ -220,7 +254,7 @@ if employee_clock.tick
 if !employee_clock.tick
 ```
 
-# Extras
+## Extras
 > If you want another great book to read, try `Practical Object-Oriented Design in Ruby by Sandi Metz` [3].
 <!-- - In Ruby, everything is pass by value, but these values are references to objects  NOT NEEDED -->
 - For formatting, you could use Rubocop with default rules. Easy!

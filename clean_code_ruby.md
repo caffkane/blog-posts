@@ -219,7 +219,7 @@ def add10(a)
   a + 10
 end
 
-...
+... # And so on
 ```
 
 #### Dead Code
@@ -252,13 +252,13 @@ if !employee_clock.tick
 ```
 
 ## Extras
-> If you want another great book to read, try `Practical Object-Oriented Design in Ruby by Sandi Metz` [3].
+> If you want another great book to read, try `POODR by Sandi Metz` [3].
 <!-- - In Ruby, everything is pass by value, but these values are references to objects  NOT NEEDED -->
 - For formatting, you could use Rubocop with default rules. Easy!
 - Exception handling services such as Airbrake or HoneyBadger, are useful for anything related to application errors.
 - Organization style guides help with cohesion and what forms a good comment.
 
-## References/ Ruby Books
+## References/Ruby Books
 - [1] Clean Code by Robert C. Martin
 - [2] Refactoring by Martin Fowler
 - [3] Practical Object-Oriented Design in Ruby by Sandi Metz

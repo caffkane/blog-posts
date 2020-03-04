@@ -3,7 +3,7 @@
 
 I recently finished reading `Clean Code by Robert C. Martin` [1]. As they say, Uncle Bob knows best. Unfortunately, all his examples are in Java. The knowledge gained from this book can be applied to any programming language. Some things like naming or formatting have a certain way that a Rubyist would do it. Rubocop can be used for linting and formatting. Naming in Ruby follows a different convention than Java. Let’s adapt everything for Ruby!
 
-I won’t touch on everything covered in Clean Code, but I will do variables, methods, objects, classes, and a few extras.
+I'm going to be touching on core pieces of what is covered in Clean Code, including variables, methods, objects, classes, and a few extras.
 Things such as formatting, error handling, and comments are all user or organizational preferences.
 
 ## Variables
@@ -102,7 +102,7 @@ def
 end
 ```
 ## Classes + Objects
-> Because everything is an object in Ruby, this advice pairs best with both classes and objects. Funny enough, SOLID can be applied to a lot of the class advice
+> Because everything is an object in Ruby, this advice pairs best with both classes and objects. SOLID principles can be applied to a lot of the class advice given!
 
 ### Classes should be small - [Single Responsibility Principle (S in SOLID)]
 ``` Ruby
@@ -227,17 +227,17 @@ end
 ``` Ruby
 case glass_level_percentage
   when 0
-    ...
+    puts "Empty"
   when 25
-    ...
+    puts "25% Full"
   when 50
-    ...
+    puts "50% Full"
   when 75
-    ...
+    puts "75% Full"
   when 100
-    ...
+    puts "100% Full"
   when 110 # Oops, this won't execute.
-    ...
+    puts "110% Full"
 end
 ```
 

@@ -1,12 +1,13 @@
 # Clean Code The Ruby Way
 #### By Logan Kane, Software Engineer Co-op at Rise People Inc
+##### Updated March xxth, 2020
 
 I recently finished reading `Clean Code by Robert C. Martin` [1]. As they say, Uncle Bob knows best. Unfortunately, all his examples are in Java. The knowledge gained from this book can be applied to any programming language. Some things like naming or formatting have a certain way that a Rubyist would do it. Rubocop can be used for linting and formatting. Naming in Ruby follows a different convention than Java. Let’s adapt everything for Ruby!
 
 I won’t touch on everything covered in Clean Code, but I will do variables, methods, objects, classes, and a few extras.
 Things such as formatting, error handling, and comments are all user or organizational preferences.
 
-## Variables
+# Variables
 > Well named variables can be the difference between confusion and understanding. Misinterpreting what is going on in a method because of a poorly named variable isn't something you want.
 
 #### Use intention revealing variable names AKA what they are
@@ -39,7 +40,7 @@ employee_phone_number = 555_555_5555
 # Not so good
 phone_number_int = 123_456_7890
 ```
-## Methods + Functions
+# Methods + Functions
 > In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven. There isn't a large difference between a method and a function outside of that.
 
 #### Limit Method Arguments (no more than 3)
@@ -105,27 +106,39 @@ def
 
 end
 ```
-## Classes + Objects
-> Because everything is an object in Ruby, this advice pairs best with both classes and objects. A class should do one thing, and one thing well.
+# Classes + Objects
+> Because everything is an object in Ruby, this advice pairs best with both classes and objects. Funny enough, SOLID can be applied to a lot of the class advice
 
-#### Something
+### Classes should be small - [Single Responsibility Principle (S in SOLID)]
+``` Ruby
+# Good
+# Count responsibilities, not lines.
+# Should you put your writing into two drawers?
+# Or organize everything into organized filing cabinets?
+class that is super responsible?
+
+# Not so good
+```
+
+#### Classes should be open - [Open Close Principle (O in SOLID)]
 ``` Ruby
 # Good
 
 
 # Not so good
+
 ```
 
-#### Example 2
+#### Classes should be - [Dependency Inversion Principle (D in SOLID)]
 ``` Ruby
 # Good
-
 
 # Not so good
 
 ```
 
-#### Example 3
+#### Classes should be cohesive
+
 ``` Ruby
 # Good
 
@@ -134,7 +147,7 @@ end
 ```
 Side note: What's a PORO (Plain Old Ruby Object)? Because everything is an object, doesn't that make PORO moot? Normally this is used when talking Rails, to differentiate between complex objects like an ActiveRecord model. Rails objects usually have complex logic or behaviour, meaning PORO equates to `simple`.
 
-## Code Smells
+# Code Smells
 > Uncle Bob mentions a bunch of code smells, compiled from `Refactoring by Martin Fowler` [2]. Here are a few notable ones.
 
 #### Comments
@@ -207,7 +220,7 @@ if employee_clock.tick
 if !employee_clock.tick
 ```
 
-## Extras
+# Extras
 > If you want another great book to read, try `Practical Object-Oriented Design in Ruby by Sandi Metz` [3].
 <!-- - In Ruby, everything is pass by value, but these values are references to objects  NOT NEEDED -->
 - For formatting, you could use Rubocop with default rules. Easy!

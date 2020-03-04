@@ -1,6 +1,5 @@
 # Clean Code The Ruby Way
-#### By Logan Kane, Software Engineer Co-op at Rise People Inc
-##### Updated March xxth, 2020
+#### By Logan Kane, Software Engineer Co-op at Rise People Inc - Updated March xxth, 2020
 
 I recently finished reading `Clean Code by Robert C. Martin` [1]. As they say, Uncle Bob knows best. Unfortunately, all his examples are in Java. The knowledge gained from this book can be applied to any programming language. Some things like naming or formatting have a certain way that a Rubyist would do it. Rubocop can be used for linting and formatting. Naming in Ruby follows a different convention than Java. Let’s adapt everything for Ruby!
 
@@ -41,7 +40,7 @@ employee_phone_number = 555_555_5555
 phone_number_int = 123_456_7890
 ```
 ## Methods + Functions
-> In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven. There isn't a large difference between a method and a function outside of that.
+> In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven.
 
 #### Limit Method Arguments (no more than 3)
 ``` Ruby
@@ -78,11 +77,7 @@ def print_trophies(trophies)
   end
 end
 
-# This could be simplified by only printing out the trophies
-# Not checking if they're active
-# To Do: Make this more robust of a bad example.
-
-# Not so good, this does boolean logic and printing
+# Not so good, this does boolean logic, printing, and a method call
 def active_sport_player_trophies(name, active, sport)
   if active
     player_trophies = get_sport_trophies(name, sport)
@@ -217,7 +212,9 @@ end
 def add5(a)
   a + 5
 end
-# OR
+
+# If we want to add a new number
+# like 10, we have to duplicate
 def add10(a)
   a + 10
 end

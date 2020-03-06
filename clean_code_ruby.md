@@ -1,13 +1,20 @@
 # Clean Code The Ruby Way
 #### By Logan Kane, Software Engineer Co-op at Rise People Inc - Updated March xxth, 2020
 
-I recently finished reading `Clean Code by Robert C. Martin` [1]. As they say, Uncle Bob knows best. Unfortunately, all his examples are in Java. The knowledge gained from this book can be applied to any programming language. Some things like naming or formatting have a certain way that a Rubyist would do it. Rubocop can be used for linting and formatting. Naming in Ruby follows a different convention than Java. Let’s adapt everything for Ruby!
+I recently finished reading `Clean Code by Robert C. Martin` [1].
+As they say, Uncle Bob knows best. Unfortunately, all his examples are in Java.
+The knowledge gained from this book can be applied to any programming language.
+Some things like naming or formatting have a certain way that a Rubyist would do it.
+Rubocop can be used for linting and formatting.
+Naming in Ruby follows a different convention than Java. Let’s adapt everything for Ruby!
 
-I'm going to be touching on core pieces of what is covered in Clean Code, including variables, methods, objects, classes, and a few extras.
+I'm going to be touching on core pieces of what is covered in Clean Code,
+including variables, methods, objects, classes, and a few extras.
 Things such as formatting, error handling, and comments are all user or organizational preferences.
 
 ## Variables
-> Well named variables can be the difference between confusion and understanding. Misinterpreting what is going on in a method because of a poorly named variable isn't something you want.
+> Well named variables can be the difference between confusion and understanding.
+Misinterpreting what is going on in a method because of a poorly named variable isn't something you want.
 
 #### Use intention revealing variable names AKA what they are
 ``` Ruby
@@ -40,7 +47,9 @@ employee_phone_number = 555_555_5555
 phone_number_int = 123_456_7890
 ```
 ## Methods + Functions
-> In Ruby, because everything is an object, there aren't functions, only methods. Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven, rather than data driven.
+> In Ruby, because everything is an object, there aren't functions, only methods.
+Methods are pieces of code that are associated with an object. This also means that Ruby is behaviour driven,
+rather than data driven.
 
 #### Limit Method Arguments (no more than 3)
 ``` Ruby
@@ -102,7 +111,8 @@ def
 end
 ```
 ## Classes + Objects
-> Because everything is an object in Ruby, this advice pairs best with both classes and objects. SOLID principles can be applied to a lot of the class advice given!
+> Because everything is an object in Ruby, this advice pairs best with both classes and objects.
+SOLID principles can be applied to a lot of the class advice given!
 
 ### Classes should be small - [Single Responsibility Principle (S in SOLID)]
 ``` Ruby
@@ -155,7 +165,10 @@ Class ResourceMaker
 end
 ```
 Side note: Make sure not to abstract too early, or if needed at all.
-An example of this is database adapters. Yes, it is possible to create an abstract adapter so that you can make both a MongoDB adapter and a PostgreSQL adapter. In reality, most use cases never warrant switching over to a new database client. There is a reason that organizations still use MSSQL or Oracle after 30+ years.
+An example of this is database adapters. Yes, it is possible to create an abstract adapter
+so that you can make both a MongoDB adapter and a PostgreSQL adapter.
+In reality, most use cases never warrant switching over to a new database client.
+There is a reason that organizations still use MSSQL or Oracle after 30+ years.
 
 #### Classes should be cohesive
 
@@ -174,13 +187,19 @@ Class ResourceMaker
 end
 ```
 
->Ruby Object Note: What's a PORO (Plain Old Ruby Object)? Because everything is an object, doesn't that make PORO moot? Normally this is used when talking Rails, to differentiate between complex objects like an ActiveRecord model. Rails objects usually have complex logic or behaviour, meaning PORO equates to `simple`.
+>Ruby Object Note: What's a PORO (Plain Old Ruby Object)?
+Because everything is an object, doesn't that make PORO moot?
+Normally this is used when talking Rails, to differentiate between complex objects
+like an ActiveRecord model. Rails objects usually have complex logic
+or behaviour, meaning PORO equates to `simple`.
 
 ## Code Smells
-> Uncle Bob mentions a bunch of code smells, compiled from `Refactoring by Martin Fowler` [2]. Here are a few notable ones.
+> Uncle Bob mentions a bunch of code smells, compiled from `Refactoring by Martin Fowler` [2].
+Here are a few notable ones.
 
 #### Comments
-> Write concise, informative comments. Remove a comment when it is obsolete, or telling the same story the code tells.
+> Write concise, informative comments. Remove a comment when it is obsolete,
+or telling the same story the code tells.
 Here are some examples of bad comments:
 ``` Ruby
 # This is the speak method for the ... class (Redundant)

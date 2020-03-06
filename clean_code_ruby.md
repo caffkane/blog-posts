@@ -155,7 +155,7 @@ Class ResourceMaker
 end
 ```
 Side note: Make sure not to abstract too early, or if needed at all.
-An example of this is database adapters. Yes, it is absolutely possible to create an abstract adapter so that you can make both a MongoDB client and a PostgreSQL client. In reality, most use cases never warrant switching over to a new database client. There is a reason that organizations still use MSSQL or Oracle.
+An example of this is database adapters. Yes, it is possible to create an abstract adapter so that you can make both a MongoDB adapter and a PostgreSQL adapter. In reality, most use cases never warrant switching over to a new database client. There is a reason that organizations still use MSSQL or Oracle after 30+ years.
 
 #### Classes should be cohesive
 

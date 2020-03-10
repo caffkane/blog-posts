@@ -99,26 +99,37 @@ def active_sport_player_trophies(name, active, sport)
 end
 ```
 
-#### Example 3
+#### Methods should be small
 ``` Ruby
-# Good
-def
+# The famous Rubyist Sandi Metz recommends 5 lines max
+# I think 5 lines or less is a hard goal to hit but it
+# means that your method is only doing one thing!
+# It also means you extract logic to new methods
 
+# Good
+def thing_comparison(thing)
+  if this == thing
+    puts thing
+  else
+    puts "Not #{thing}"
+  end
 end
+
 # Not so good
-def
+def return_of_the_thing(thing)
+
 
 end
 ```
-## Classes + Objects
-> Because everything is an object in Ruby, this advice pairs best with both classes and objects.
+## Classes
+> Everything is an object in Ruby. Classes included.
 SOLID principles can be applied to a lot of the class advice given!
 
 ### Classes should be small - [Single Responsibility Principle (S in SOLID)]
 ``` Ruby
 # Count responsibilities, not lines.
-# Should you put your writing into two drawers?
-# Or organize everything into organized filing cabinets?
+# Should you have everything piled on one desk?
+# Or organize everything into filing cabinets?
 
 # Good
 Class ResourceMaker
@@ -175,6 +186,7 @@ There is a reason that organizations still use MSSQL or Oracle after 30+ years.
 ``` Ruby
 # Classes should touch as much of the variables as possible
 # If they variables aren't used, split the class up
+# If a class gets too long, extract methods to a resource
 
 # Good
 Class ResourceMaker
